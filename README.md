@@ -1,8 +1,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About the Project
 
-Networking Menu for SSH Connectivity 
-====================================
+Fabric Discovery Info 
+=====================
 
 The purpose of this code is to grant a easy way to get the Cisco ACI Fabric information.
 
@@ -20,23 +20,8 @@ To get a local copy up and running follow these simple example steps.
 Usage
 =====
 
-1.  Configure the ``Constants.py`` file with the information about your users for SSH connections
-2.  Execute the ``MenuSSH.py`` Python Script 
-
-Menu Options
-============
-
-* Print Network Devices Available
-* SSH to a Network Device
-* Exit Option
-
-Future Implementations
-======================
-
-* Adding checks for Layer 2/3 Protocols
-* Check logs files
-* Check Hardware issues
-* Check network services in the Network Device (SNMP, NTP, etc.)
+1.  Configure the ``Constants.py`` file with the credentials information and the APIC IP address (or DNS name)
+2.  Execute the ``ShowFabric.py`` with Python 3  
 
 Contributing
 ============
@@ -51,3 +36,5 @@ Distributed under the BBVA Next Technologies License. See `LICENSE` for more inf
 
 <!-- CONTACT -->
 ## Contact
+
+Email : jrguerra71@hotmail.com
