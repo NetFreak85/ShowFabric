@@ -15,7 +15,7 @@ To get a local copy up and running follow these simple example steps.
 ### Installation
 
 1.  Clone the Project:
-        ``git clone git@scm.live.es.nextgen.igrupobbva:e058386/menussh.git``
+        ``git clone https://github.com/NetFreak85/ShowFabric.git``
 
 Usage
 =====
