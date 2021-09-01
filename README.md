@@ -9,8 +9,14 @@ The purpose of this code is to grant a easy way to get the Cisco ACI Fabric info
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+In this Script we will be able to take all the information about the Cisco ACI Fabric and see the following information without logging in the APICs:
+
+1.  Management IP Address
+2.  Model
+3.  Device Name
+4.  Device Role
+5.  Device Serial NumberSerial Number
+6.  Device NX-OS Version
 
 ### Installation
 
