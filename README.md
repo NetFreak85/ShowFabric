@@ -32,7 +32,7 @@ Please make sure to update tests as appropriate.
 <!-- LICENSE -->
 ## License
 
-Do whatever you want with the script. I created for helping the Cisco Community
+Do whatever you want with the script. I created it for helping the Cisco Community
 
 <!-- CONTACT -->
 ## Contact
