@@ -11,7 +11,7 @@
 #
 #   --usage:
 #             ./ShowFabric.py  
-#         or  python runTest.sh  
+#         or  python ShowFabric.sh  
 #
 # date:  01/09/2021 Created
 #**********************************************************************************
