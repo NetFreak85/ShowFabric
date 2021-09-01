@@ -32,7 +32,7 @@ Please make sure to update tests as appropriate.
 <!-- LICENSE -->
 ## License
 
-Distributed under the BBVA Next Technologies License. See `LICENSE` for more information.
+Do whatever you want with the script. I created for helping the Cisco Community
 
 <!-- CONTACT -->
 ## Contact
