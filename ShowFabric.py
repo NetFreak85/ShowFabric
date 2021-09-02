@@ -39,23 +39,23 @@ def get_request(url, cookie):
 
 #Method that discovery all the ACI Members and print values
 def findFabric(apicIP, cookie):
-	response = get_request('https://%s/api/node/class/fabricNode.json?&order-by=fabricNode.modTs|desc' % apicIP, cookie)
+	fabricNode = get_request('https://%s/api/node/class/fabricNode.json?&order-by=fabricNode.modTs|desc' % apicIP, cookie)
 	NodeInfo = get_request('https://%s/api/node/class/topSystem.json?&order-by=topSystem.modTs|desc' % apicIP, cookie)
 
 	#Print the number of members in the Fabric
 	printAux()
-	print("    Number of member in the Fabric :   %s" % response['totalCount'])
+	print("    Number of member in the Fabric :   %s" % fabricNode['totalCount'])
 	printAux()
 
 	#Print the Fabric Info
-	for i in range(0,int(response['totalCount'])):
+	for i in range(0,int(fabricNode['totalCount'])):
 		print ("   Management IP Address   :      %s" % NodeInfo['imdata'][i]['topSystem']['attributes']['inbMgmtAddr'])
-		print ("   Model                   :      %s" % response['imdata'][i]['fabricNode']['attributes']['model'])
-		print ("   Name                    :      %s" % response['imdata'][i]['fabricNode']['attributes']['name'])
-		print ("   Role                    :      %s" % response['imdata'][i]['fabricNode']['attributes']['role'])
-		print ("   Serial Number           :      %s" % response['imdata'][i]['fabricNode']['attributes']['serial'])
-		print ("   Version NX-OS           :      %s" % response['imdata'][i]['fabricNode']['attributes']['version'])
-		print ("   TEP IP Address          :      %s" % response['imdata'][i]['fabricNode']['attributes']['address'])
+		print ("   Model                   :      %s" % fabricNode['imdata'][i]['fabricNode']['attributes']['model'])
+		print ("   Name                    :      %s" % fabricNode['imdata'][i]['fabricNode']['attributes']['name'])
+		print ("   Role                    :      %s" % fabricNode['imdata'][i]['fabricNode']['attributes']['role'])
+		print ("   Serial Number           :      %s" % fabricNode['imdata'][i]['fabricNode']['attributes']['serial'])
+		print ("   Version NX-OS           :      %s" % fabricNode['imdata'][i]['fabricNode']['attributes']['version'])
+		print ("   TEP IP Address          :      %s" % fabricNode['imdata'][i]['fabricNode']['attributes']['address'])
 		print ("   TEP POOL                :      %s" % NodeInfo['imdata'][i]['topSystem']['attributes']['tepPool'])
 		print ("   Fabric Mac Address      :      %s" % NodeInfo['imdata'][i]['topSystem']['attributes']['fabricMAC'])
 		print ("   System Uptime           :      %s" % NodeInfo['imdata'][i]['topSystem']['attributes']['systemUpTime'])
