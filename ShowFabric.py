@@ -47,11 +47,8 @@ def findFabric(apicIP, cookie):
 	print("    Number of member in the Fabric :   %s" % response['totalCount'])
 	printAux()
 
-	#print(NodeInfo)
-
-	#Print the Address, Model, Name, Role, S/N and NX-OS Version
+	#Print the Fabric Info
 	for i in range(0,int(response['totalCount'])):
-		#printAux()
 		print ("   Management IP Address   :      %s" % NodeInfo['imdata'][i]['topSystem']['attributes']['inbMgmtAddr'])
 		print ("   Model                   :      %s" % response['imdata'][i]['fabricNode']['attributes']['model'])
 		print ("   Name                    :      %s" % response['imdata'][i]['fabricNode']['attributes']['name'])
