@@ -8,6 +8,12 @@
 #			Role
 #			Serial Number
 #			NX-OS Version
+#           System Uptime
+#           System Last Reboot
+#           Current System Time
+#           TEP IP Address
+#           TEP Pool
+#           Mac Address
 #
 #   --usage:
 #             ./ShowFabric.py  
@@ -23,7 +29,7 @@ import getCookie
 import Constant
 
 def printAux():
-	print("+-------------------------------------------+")
+	print("+---------------------------------------------------------------+")
 
 #Get Resquest to APICs and return a json object
 def get_request(url, cookie):
@@ -34,21 +40,30 @@ def get_request(url, cookie):
 #Method that discovery all the ACI Members and print values
 def findFabric(apicIP, cookie):
 	response = get_request('https://%s/api/node/class/fabricNode.json?&order-by=fabricNode.modTs|desc' % apicIP, cookie)
-	
+	NodeInfo = get_request('https://%s/api/node/class/topSystem.json?&order-by=topSystem.modTs|desc' % apicIP, cookie)
+
 	#Print the number of members in the Fabric
 	printAux()
-	print("|   Number of member in the Fabric :   %s" % response['totalCount'] + "    |")
+	print("    Number of member in the Fabric :   %s" % response['totalCount'])
 	printAux()
-	
+
+	#print(NodeInfo)
+
 	#Print the Address, Model, Name, Role, S/N and NX-OS Version
 	for i in range(0,int(response['totalCount'])):
-		printAux()
-		print ("   Address           :      %s" % response['imdata'][i]['fabricNode']['attributes']['address'])
-		print ("   Model             :      %s" % response['imdata'][i]['fabricNode']['attributes']['model'])
-		print ("   Name              :      %s" % response['imdata'][i]['fabricNode']['attributes']['name'])
-		print ("   Role              :      %s" % response['imdata'][i]['fabricNode']['attributes']['role'])
-		print ("   Serial Number     :      %s" % response['imdata'][i]['fabricNode']['attributes']['serial'])
-		print ("   Version NX-OS     :      %s" % response['imdata'][i]['fabricNode']['attributes']['version'])
+		#printAux()
+		print ("   Management IP Address   :      %s" % NodeInfo['imdata'][i]['topSystem']['attributes']['inbMgmtAddr'])
+		print ("   Model                   :      %s" % response['imdata'][i]['fabricNode']['attributes']['model'])
+		print ("   Name                    :      %s" % response['imdata'][i]['fabricNode']['attributes']['name'])
+		print ("   Role                    :      %s" % response['imdata'][i]['fabricNode']['attributes']['role'])
+		print ("   Serial Number           :      %s" % response['imdata'][i]['fabricNode']['attributes']['serial'])
+		print ("   Version NX-OS           :      %s" % response['imdata'][i]['fabricNode']['attributes']['version'])
+		print ("   TEP IP Address          :      %s" % response['imdata'][i]['fabricNode']['attributes']['address'])
+		print ("   TEP POOL                :      %s" % NodeInfo['imdata'][i]['topSystem']['attributes']['tepPool'])
+		print ("   Fabric Mac Address      :      %s" % NodeInfo['imdata'][i]['topSystem']['attributes']['fabricMAC'])
+		print ("   System Uptime           :      %s" % NodeInfo['imdata'][i]['topSystem']['attributes']['systemUpTime'])
+		print ("   Current System Time     :      %s" % NodeInfo['imdata'][i]['topSystem']['attributes']['currentTime'])
+		print ("   Last Reboot             :      %s" % NodeInfo['imdata'][i]['topSystem']['attributes']['lastRebootTime'])
 		printAux()
 
 #Main program
