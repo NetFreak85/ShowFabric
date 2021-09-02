@@ -2,18 +2,18 @@
 #**********************************************************************************
 #    This script is for discovery all the members in the Cisco ACI Fabric
 #	 The script will print the following information:
-#			IP Management Address
-#			Model
-#			Name
-#			Role
-#			Serial Number
-#			NX-OS Version
-#           System Uptime
-#           System Last Reboot
-#           Current System Time
-#           TEP IP Address
-#           TEP Pool
-#           Mac Address
+#		IP Management Address
+#		Model
+#		Name
+#		Role
+#		Serial Number
+#		NX-OS Version
+#		System Uptime
+#		System Last Reboot
+#		Current System Time
+#		TEP IP Address
+#		TEP Pool
+#		Mac Address
 #
 #   --usage:
 #             ./ShowFabric.py  
